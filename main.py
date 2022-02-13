@@ -1,3 +1,4 @@
+import json
 import requests
 import urllib
 import random
@@ -22,19 +23,22 @@ data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
 
 images = [{'name':image['name'],'url':image['url'],'id':image['id']} for image in data]
 
+arquivoDados = open("dados.json")
+dados = json.load(arquivoDados)
+arquivoDados.close()
 
-inicios = ['Eis que ', 'Me when ', 'Brace yourselves ', 'FUVAS ', 'UNICHAMPz ']
-meios = ['your mom aqula puta ', 'shok fuvest ', 'resultado fuvest ', 'o cornavarius ', 'luiz paulo pinto ', 'role cemiterio ', 'furado ']
-fim = ['merda caralho ', 'phineas e ferb ', 'puta gorda ', 'come sua mae', 'AAAAAAAAAAAAAAA', 'rocket league']
+inicios = dados["inicios"]
+meios = dados["meios"]
+fins = dados["fins"]
 
-memes_2_textos = [1, 5, 8, 10, 11, 12, 15, 18, 20, 21, 22, 23, 25, 26, 27, 32, 33, 35, 38, 39, 44, 45, 46, 47, 54, 55, 56, 59, 58]
-memes_3_textos = [2, 3, 6, 17, 24, 28, 29, 31, 37, 41, 48, 51]
+memes_2_textos = dados["memes_2_textos"]
+memes_3_textos = dados["memes_3_textos"]
 
 id = random.randint(1, 101)
 
 text1 = random.choice(inicios)
 text2 = random.choice(meios)
-text3 = random.choice(fim)
+text3 = random.choice(fins)
 
 URL = 'https://api.imgflip.com/caption_image'
 params = {
