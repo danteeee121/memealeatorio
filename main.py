@@ -10,9 +10,9 @@ try:
     username = config['USERNAME']
     password = config['PASSWORD']
 except KeyError:
-    print("Arquivo .env não encontrado. Por favor, crie um arquivo com o nome '.env' contendo as seguintes linhas:")
+    print("\nArquivo .env não encontrado ou incompleto. Por favor, crie um arquivo com o nome '.env' e certifique-se que contém as seguintes linhas linhas:")
     print("USERNAME=seu_nome_de_usuario")
-    print("PASSWORD=sua_senha")
+    print("PASSWORD=sua_senha\n")
 
 
 user_agent = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0'
