@@ -2,8 +2,18 @@ import requests
 import urllib
 import random
 
-username = ''
-password = ''
+from dotenv import dotenv_values
+
+# Importar `username` e `password` do arquivo .env
+try:
+    config = dotenv_values()
+    username = config['USERNAME']
+    password = config['PASSWORD']
+except KeyError:
+    print("Arquivo .env não encontrado. Por favor, crie um arquivo com o nome '.env' contendo as seguintes linhas:")
+    print("USERNAME=seu_nome_de_usuario")
+    print("PASSWORD=sua_senha")
+
 
 user_agent = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:96.0) Gecko/20100101 Firefox/96.0'
 
